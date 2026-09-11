@@ -1,0 +1,24 @@
+name: Simple CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check text file
+        run: |
+          echo "Running CI..."
+          cat message.txt
+
+      - name: Deploy
+        run: |
+          echo "Running CD..."
+          echo "Deployment successful!"
